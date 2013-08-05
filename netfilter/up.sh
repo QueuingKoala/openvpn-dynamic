@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Copyright 2013, Josh Cepek
+# This file is part of the openvpn-dynamic project, available from:
+# https://github.com/QueuingKoala/openvpn-dynamic
+# Dual-licensed under GPLv3 and BSD-3-clause
+
 # General config:
 dynamic_dir="/etc/openvpn/dynamic-main"
 state_dir="/var/tmp/openvpn/fw-main"
