@@ -5,9 +5,6 @@
 # https://github.com/QueuingKoala/openvpn-dynamic
 # Dual-licensed under GPLv3 and BSD-3-clause
 
-# debugging vars
-#set > /tmp/connect-vars.txt
-
 # General config:
 dynamic_dir="/etc/openvpn/dynamic-main"
 state_dir="/var/tmp/openvpn/fw-main"
