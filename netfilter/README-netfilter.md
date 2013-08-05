@@ -34,6 +34,9 @@ OpenVPN config.) If present, this file will be coppied to the state\_dir for
 future unloading, and then loaded into netfilter. This state directory is
 important as the client rule file may have changed since loading.
 
+If a client-specific rule file is not present but one named DEFAULT:fw is, that
+file will be loaded as described above.
+
 When clients disconnect that had dynamnic rules applied, any -A or -I commands
 in the rule file are replaced with -D (delete) to remove the applied rules.
 
