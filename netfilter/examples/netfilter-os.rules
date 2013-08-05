@@ -1,0 +1,23 @@
+# This is intended as an EXAMPLE only -- you need to integrate a solution into
+# your own ruleset.
+#
+# The important bits to note here as it relates to the rest of the files in the
+# examples/ directory include the vpn_fw chain, which gets flushed on openvpn
+# startup, and the default-accept policy that is outside this chain.
+#
+# This isn't a very complex example, but it should demonstrate how the rule
+# files are loaded and the intent when adding per-client rules, and the function
+# of the DEFAULT:init rules. Note that the dynamic rulesets are loaded via
+# iptables-restore -n, where -n doesn't flush the existing rules on load.
+
+*filter
+:INPUT DROP
+:FORWARD DROP
+:OUTPUT ACCEPT
+:vpn_fw -
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -i lo+ -j ACCEPT
+-A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A FORWARD -s 10.50.0.0/24 -j vpn_fw
+-A FORWARD -s 10.50.0.0/24 -j ACCEPT
+COMMIT

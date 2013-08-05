@@ -1,0 +1,15 @@
+# Note that this is an EXAMPLE only to demonstrate usage and how it connects to
+# a complete netfilter ruleset.
+#
+# The DEFAULT:init file is loaded on openvpn initilization through the
+# up-script. In this case, the vpn_fw chain (which must already exist in the
+# loaded OS ruleset) is flushed, clearing out any stale rules from a previous
+# VPN server instance.
+#
+# Additional processing or rule manipulation could occur here as well. Note that
+# this rule file is loaded through iptables-restore -n, where -n does not flush
+# the tables before loading the rules.
+
+*filter
+-F vpn_fw
+COMMIT

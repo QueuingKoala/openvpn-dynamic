@@ -1,0 +1,11 @@
+# This sample allows forwarded packets from this client to the 203.0.113/24
+# network and rejects packets being forwarded elsewhere.
+#
+# Logic could be changed as required for access rules for any particular client,
+# and possibly in different directions as well. Any reference to the string <IP>
+# will be replaced with the client's assigned IP from openvpn.
+
+*filter
+-A vpn_fw -s <IP> -d 203.0.113/24 -j ACCEPT
+-A vpn_fw -s <IP> -j REJECT --reject-with admin-prohib
+COMMIT
