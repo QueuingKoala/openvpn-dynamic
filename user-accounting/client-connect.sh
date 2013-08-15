@@ -12,10 +12,10 @@ log_file="/var/log/openvpn/remote.connect"
 # Vars used:
 date_now="$(date +'%F-%H:%M')"
 
-line="User '$common_name'"
-line+=" at $date_now"
-line+=" using $ifconfig_pool_remote_ip"
-line+=" from ${trusted_ip}:${trusted_port}"
+line="User '$common_name' \
+at $date_now \
+using $ifconfig_pool_remote_ip \
+from ${trusted_ip}:${trusted_port}"
 
 # Append to the log
 echo "$line" >> "$log_file"

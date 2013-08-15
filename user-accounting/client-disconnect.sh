@@ -31,11 +31,11 @@ bw_down+=".$(( $bytes_sent % 1000**2 / 1000 ))"
 
 
 # Format the line for export:
-line="User '$common_name'"
-line+=" using $ifconfig_pool_remote_ip"
-line+=" from $trusted_ip:$trusted_port"
-line+=" for $date_from to $date_to ($time_h:$time_m)"
-line+=" BW(up/down) $bw_up/$bw_down"
+line="User '$common_name' \
+using $ifconfig_pool_remote_ip \
+from $trusted_ip:$trusted_port \
+for $date_from to $date_to ($time_h:$time_m) \
+BW(up/down) $bw_up/$bw_down"
 
 # Append it to the log
 echo "$line" >> "$log_file"
