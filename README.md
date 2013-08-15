@@ -18,3 +18,4 @@ Each component has its own directory, listed below, where the frontend scripts,
 sample config files, and component documentation elements are located.
 
 * netfilter - loading dynamic netfilter rules per-client
+* user-accounting - basic user accounting on connect and/or disconnect
