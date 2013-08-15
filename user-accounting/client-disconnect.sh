@@ -24,10 +24,10 @@ date_to="$(get_date $unix_to)"
 time_h=$(($time_duration / 3600))
 time_m=$(( $time_duration % 3600 / 60 ))
 #bw:
-bw_up=$(( $bytes_received / 1000**2 ))
-bw_up+=".$(( $bytes_received % 1000**2 / 1000 ))"
-bw_down=$(( $bytes_sent / 1000**2 ))
-bw_down+=".$(( $bytes_sent % 1000**2 / 1000 ))"
+bw_up="$(( $bytes_received / 1000**2 ))\
+.$(( $bytes_received % 1000**2 / 1000 ))"
+bw_down="$(( $bytes_sent / 1000**2 ))\
+.$(( $bytes_sent % 1000**2 / 1000 ))"
 
 
 # Format the line for export:
